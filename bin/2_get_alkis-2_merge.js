@@ -298,6 +298,7 @@ async function start() {
 			if (map.has(name)) return map.get(name);
 
 			let filename = config.getFilename.alkisGeo(name.toLowerCase().replace(/\s/g, '_') + '.geojsonl.gz');
+			console.log('filename', filename)
 			let fileStream = fs.createWriteStream(filename);
 			let gzipStream = zlib.createGzip({ level: 9 });
 			gzipStream.pipe(fileStream);
